@@ -1,0 +1,133 @@
+:root {
+    --bgColorFondo: #461f3e;
+    --colorHedaerFooter: #6e55fc;
+    --colorTexto: white;
+    --colorTextoDesplazado: rgb(97, 81, 240);
+    --colorBoton: rgb(49, 49, 156);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+    background-color: var(--bgColorFondo);
+    color: var(--colorTexto);
+}
+
+.navbar {
+    background-color: var(--bgColorFondo);
+    display: flex;
+    align-items: center; /* Alinea verticalmente los elementos */
+}
+
+.navbar-brand img {
+    height: 30px;
+    margin-right: 10px; /* Espaciado entre el logo y el menú */
+}
+
+.navbar-nav {
+    flex-direction: row; /* Menú vertical en el colapso */
+}
+
+.nav-item {
+    margin-left: 10px; /* Espaciado entre elementos del menú */
+}
+
+.nav-link {
+    color: var(--colorTexto);
+    text-decoration: none;
+    padding: 0.5rem 0;
+    font-size: 16px;
+}
+
+.navbar-toggler {
+    border: none;
+    color: var(--colorTexto);
+    z-index: 1100; /* Asegura que el botón esté visible */
+}
+
+.btn-success, .btn-secondary, .btn-primary {
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: smaller;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);   /* Dos filas iguales */
+    gap: 20px; /*10px;*/
+    padding: 20px; /*10px;*/
+    margin-top: 20px; /* Separación con otros elementos */
+}
+
+.box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid black; /* Borde del cuadro */
+    font-size: 24px;
+    background-color: var(--bgColorFondo);
+    border-radius: 8px; /* Bordes redondeados */
+    height: 150px; /* Altura fija de los cuadros */
+}
+
+@media (max-width: 767.98px) {
+    .navbar-nav {
+        flex-direction: column; /* Cambia a menú vertical en pantallas pequeñas */
+/*        text-align: left;
+        padding-left: 1rem;
+*/    }
+
+    /* Configuración del menú colapsado que aparece desde la izquierda */
+    .collapse.navbar-collapse {
+        position: fixed;
+        top: 0;
+        left: -250px; /* Oculto inicialmente a la izquierda */
+        height: 100%;
+        width: 250px; /* Ancho del menú deslizante */
+        background-color: var(--bgColorFondo);
+        transition: left 0.3s ease-in-out; /* Efecto suave al deslizar */
+        z-index: 1050; /* Asegura que esté sobre otros elementos */
+        padding-top: 1rem; /* Espaciado superior dentro del menú */
+    }
+
+    .collapse.navbar-collapse.show {
+        left: 0; /* Mueve el menú al lado izquierdo visible */
+    }
+    
+    .navbar-toggler {
+        z-index: 1100; /* Asegura que el botón hamburguesa esté sobre el menú */
+    }
+
+    .nav-link {
+        font-size: 18px; /* Opcional: un poco más grande en pantallas pequeñas */
+    }
+
+    .navbar-brand img {
+        margin-right: 0; /* Quita margen en pantallas pequeñas */
+    }
+
+    .grid-container {
+        grid-template-columns: repeat(2, 1fr); /* Dos columnas en pantallas pequeñas */
+        grid-template-rows: auto; /* Ajusta automáticamente las filas */
+    }
+}
+
+@media (min-width: 768px) {
+    .navbar-nav {
+        flex-direction: row; /* Menú horizontal en pantallas grandes */
+    }
+
+    .collapse.navbar-collapse {
+        position: relative; /* Posición normal en pantallas grandes */
+        left: 0; /* Asegura que esté visible en pantallas grandes */
+    }
+}
+
