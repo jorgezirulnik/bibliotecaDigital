@@ -47,12 +47,12 @@ def admin_login():
 #    return render_template('admin/login.html', mensaje="Usuario o clave incorrecto. Acceso denegado")
 
 
-@app.route('/admin/indexSeguridad')
-def seguridad():
-    if not 'login' in session or session['perfil'] != 1:
-        return redirect('/index.html')
-
-    return render_template('/admin/indexSeguridad.html', usuNombre=session['nombreUsu'])
+#@app.route('/admin/indexSeguridad')
+#def seguridad():
+#    if not 'login' in session or session['perfil'] != 1:
+#        return redirect('/index.html')
+#
+#    return render_template('/admin/indexSeguridad.html', usuNombre=session['nombreUsu'])
 
 @app.route('/index.html')
 def inicio():
